@@ -30,18 +30,24 @@ function Search(props) {
     }
 
     return (
-        <>
+        <div className='container-fluid'>
             <form onSubmit={onSubmitHandler}>
-            <div className="form-group">
-                <label >Nome</label>
-                <input type="text" value={searchTerm} onChange={onInputChange} className="form-control" id="searchTerm" placeholder="Nome da série" />
-            </div>
-            <button type="submit">Search</button>
-        </form>
+                <div className="form-group">
+                    <input
+                        type="text"
+                        value={searchTerm}
+                        onChange={onInputChange}
+                        className="form-control"
+                        id="searchTerm"
+                        placeholder="Digite o nome da GIF desejada" />
+                </div>
+                <button type="submit">Search</button>
+            </form>
 
             <TableGif gifs={gifs} />
-        </>
-  )
+        </div>
+
+    )
 
 }
 
