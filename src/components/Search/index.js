@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import Api from '../../services/api'
 import './Search.css'
+
+import TableGif from '../TableGif'
 
 function Search(props) {
     const api_key = 'w42HFJy5XN3cyIN0EFYptLKIJGunWn92'
+
 
     const [searchTerm, setSearchTerm] = useState("")
     const [gifs, setGifs] = useState([])
@@ -12,7 +15,7 @@ function Search(props) {
     }
 
     const buscaGif = async () => {
-        const result = await axios.get(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}&api_key=${api_key}`)
+        const result = await Api.get(`/search?q=${searchTerm}&api_key=${api_key}`)
         setGifs(result.data.data)
         console.log(result.data.data)
     }
@@ -36,15 +39,7 @@ function Search(props) {
             <button type="submit">Search</button>
         </form>
 
-        
-            {gifs.map((dado) => (
-
-                <ul key={dado.id}>
-                    <img src={dado.images.original.url} className="imagem-gif" />
-                </ul>
-            ))
-
-            }
+            <TableGif gifs={gifs} />
         </>
   )
 
