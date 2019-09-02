@@ -1,17 +1,14 @@
 import React from 'react';
 import './App.css'
-
 import Search from './components/Search'
+import Header from './components/Header'
 
 function App() {
   return (
-    
-    <>
-      <header>
-      </header>
-      <Search />
-     
-    </>
+      <div className='home'>
+        <Header />
+        <Search />
+      </div>
   );
 }
 

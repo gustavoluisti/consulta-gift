@@ -6,8 +6,6 @@ import TableGif from '../TableGif'
 
 function Search(props) {
     const api_key = 'w42HFJy5XN3cyIN0EFYptLKIJGunWn92'
-
-
     const [searchTerm, setSearchTerm] = useState("")
     const [gifs, setGifs] = useState([])
     const onInputChange = e => {
