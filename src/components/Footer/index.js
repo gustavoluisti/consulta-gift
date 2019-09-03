@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import './Header.css'
+import './Footer.css'
 
-const Header = () => {
+const Footer = () => {
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid footer'>
             <nav className="navbar navbar-expand-lg navbar-dark ">
                 <Link className="navbar-brand" to="/">Gifs</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,14 +20,11 @@ const Header = () => {
                             <Link className="nav-link" to="/favorites">Favoritos</Link>
                         </li>
                     </ul>
-                    <form className="form-inline">
-                        <input className="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
-                </div>
-            </nav>
+                
+    </div>
+  </nav>
         </div>
     )
 }
 
-export default Header
+export default Footer

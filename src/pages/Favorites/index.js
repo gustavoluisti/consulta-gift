@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Favorites.css'
 
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 export default class Favorites extends Component {
 
@@ -32,10 +33,11 @@ export default class Favorites extends Component {
                     {favoritos.favoritos.map((dado, index) => (
                         <div className=' '>
                             <h5 className='title'>{dado.title}</h5>
-                            <img className='imagem-gif' src={dado.url} />
+                            <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
                         </div>
                     ))}
                 </div>
+                <Footer />
             </div>
 
         )

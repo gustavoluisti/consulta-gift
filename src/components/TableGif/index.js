@@ -7,7 +7,6 @@ const TableGif = ({ gifs }) => {
     const textAreaRef = useRef(null);
 
     function copyToClipboard(e) {
-        e.preventDefault();
         textAreaRef.current.select();
         document.execCommand('copy');
         e.target.focus();
@@ -15,31 +14,17 @@ const TableGif = ({ gifs }) => {
     };
 
     const favorites = (id, url, title) => {
-        // console.log(id)
-        // console.log(url)
-        // console.log(title)
-
        saveLocalStorage(id, url, title)
     }
 
    const saveLocalStorage = (id, url, title) =>{
-        let key = 'inicio';
-
         let favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]')  
-        
         favoritos.push({
             id,
             url,
             title
         })
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        localStorage.setItem(key, 'Value');
-        // let data = [{ 
-        //     id,
-        //     url,
-        //     title
-        // }];
-        // localStorage.setItem(key, JSON.stringify(data));
     }
 
    
@@ -48,20 +33,20 @@ const TableGif = ({ gifs }) => {
         <div className='container'>
 
 
-            {gifs.map((dado) => (
+            {gifs.map((dado, index) => (
                     <div key={dado.id}>
-
                         <ul >
-                            <img className="item" src={dado.images.original.url} className="imagem-gif" />
+                            <img src={dado.images.original.url} className="imagem-gif item" alt={dado.title} />
                             {
                                 document.queryCommandSupported('copy') &&
-                                <div>
-                                    <button onClick={copyToClipboard}>Copy</button>
-                                    <button onClick={() => {favorites(dado.id, dado.images.original.url, dado.title )}}>Favorito</button>
+                                <div className='container container-flex'>
+                                    <button className='btn btn-warning item' onClick={() =>{copyToClipboard(index)}}>Copy</button>
+                                    <button className='btn btn-danger item' onClick={() => {favorites(dado.id, dado.images.original.url, dado.title )}}>Favorito</button>
                                     {copySuccess}
                                 </div>
                             }
                             <textarea
+                                className='copy-text'
                                 ref={textAreaRef}
                                 defaultValue={dado.embed_url}
                             />
