@@ -30,10 +30,10 @@ export default class Favorites extends Component {
                 <Header />
                 <div className='container mt-5'>
                     {favoritos.favoritos.map((dado, index) => (
-                        <div key={index} className=' '>
+                        <div key={index} className='row'>
                             <h5 className='title'>{dado.title}</h5>
                             <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
-                            
+                            <textarea value={dado.embed_url} />
                         </div>
                     ))}
                 </div>
