@@ -4,6 +4,8 @@ import './Favorites.css'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
+import CopyButton from '../../components/Copy'
+
 export default class Favorites extends Component {
     constructor(props) {
         super(props)
@@ -43,6 +45,7 @@ export default class Favorites extends Component {
                                     <>
                                         <h5 className='title'>{dado.title}</h5>
                                         <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
+                                        <CopyButton embed_url={dado.url} />
                                         <textarea defaultValue={dado.embed_url} />
                                     </>
                             }
