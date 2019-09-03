@@ -28,7 +28,7 @@ export default class Favorites extends Component {
         return (
             <div>
                 <Header />
-                <div className='container '>
+                <div className='container mt-5'>
                     {favoritos.favoritos.map((dado, index) => (
                         <div className=' '>
                             <h5 className='title'>{dado.title}</h5>

@@ -28,7 +28,7 @@ function Search(props) {
     }
 
     return (
-        <div className='container-fluid'>
+        <div className='container-fluid mt-3'>
             <form onSubmit={onSubmitHandler}>
                 <div className="form-group">
                     <input
@@ -39,7 +39,7 @@ function Search(props) {
                         id="searchTerm"
                         placeholder="Digite o nome da GIF desejada" />
                 </div>
-                <button type="submit">Search</button>
+                <button className='btn btn-primary' type="submit">Buscar</button>
             </form>
 
             <TableGif gifs={gifs} />
