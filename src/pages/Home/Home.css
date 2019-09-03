@@ -1,0 +1,10 @@
+.home{
+    background-color: #000;
+    flex: 1;
+    height: 100%;
+  }
+  
+  .imagem-gif{
+    width:250px;
+    height: 200px;
+  }

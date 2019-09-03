@@ -10,19 +10,36 @@ const TableGif = ({ gifs }) => {
         e.preventDefault();
         textAreaRef.current.select();
         document.execCommand('copy');
-        // This is just personal preference.
-        // I prefer to not show the the whole text area selected.
         e.target.focus();
         setCopySuccess('Copied!');
     };
+
+    const favorites = (id, url, title) => {
+        console.log(id)
+        console.log(url)
+        console.log(title)
+
+       saveLocalStorage(id, url, title)
+    }
+
+   const saveLocalStorage = (id, url, title) =>{
+        let key = 'inicio';
+        localStorage.setItem(key, 'Value');
+        let data = { 
+            id,
+            url,
+            title
+        };
+        localStorage.setItem(key, JSON.stringify(data));
+    }
+
+   
 
     return (
         <div className='container'>
 
 
             {gifs.map((dado) => (
-
-                <form>
                     <div key={dado.id}>
 
                         <ul >
@@ -31,6 +48,7 @@ const TableGif = ({ gifs }) => {
                                 document.queryCommandSupported('copy') &&
                                 <div>
                                     <button onClick={copyToClipboard}>Copy</button>
+                                    <button onClick={() => {favorites(dado.id, dado.images.original.url, dado.title )}}>Favorito</button>
                                     {copySuccess}
                                 </div>
                             }
@@ -42,7 +60,7 @@ const TableGif = ({ gifs }) => {
 
                     </div>
 
-                </form>
+             
 
 
             ))

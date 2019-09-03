@@ -1,13 +1,10 @@
 import React from 'react';
-import './App.css'
-import Search from './components/Search'
-import Header from './components/Header'
+import Routes from './routes/Routes'
 
 function App() {
   return (
       <div className='home'>
-        <Header />
-        <Search />
+          <Routes />
       </div>
   );
 }
