@@ -15,22 +15,31 @@ const TableGif = ({ gifs }) => {
     };
 
     const favorites = (id, url, title) => {
-        console.log(id)
-        console.log(url)
-        console.log(title)
+        // console.log(id)
+        // console.log(url)
+        // console.log(title)
 
        saveLocalStorage(id, url, title)
     }
 
    const saveLocalStorage = (id, url, title) =>{
         let key = 'inicio';
-        localStorage.setItem(key, 'Value');
-        let data = { 
+
+        let favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]')  
+        
+        favoritos.push({
             id,
             url,
             title
-        };
-        localStorage.setItem(key, JSON.stringify(data));
+        })
+        localStorage.setItem("favoritos", JSON.stringify(favoritos));
+        localStorage.setItem(key, 'Value');
+        // let data = [{ 
+        //     id,
+        //     url,
+        //     title
+        // }];
+        // localStorage.setItem(key, JSON.stringify(data));
     }
 
    
