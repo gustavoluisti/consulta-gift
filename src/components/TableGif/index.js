@@ -54,13 +54,13 @@ const TableGif = ({ gifs }) => {
                 <div key={dado.id}>
                     <ul >
                         <img src={dado.images.original.url} className="imagem-gif item" alt={dado.title} />
-
+                        <button className='btn btn-danger item' onClick={() => { favorites(dado.id, dado.images.original.url, dado.title, dado.embed_url) }}>Favorito</button>
+                        <CopyButton embed_url={dado.embed_url} />      
                         {/* {
                             document.queryCommandSupported('copy') &&
                             <div className='container container-flex'>
                                 <button className='btn btn-warning item' onClick={() => { copyToClipboard(dado.id, dado.images.original.url) }}>Copy</button>
-                                <button className='btn btn-danger item' onClick={() => { favorites(dado.id, dado.images.original.url, dado.title, dado.embed_url) }}>Favorito</button>
-                                {copySuccess}
+                               {copySuccess}
                             </div>
                         }
                         <textarea
@@ -68,7 +68,7 @@ const TableGif = ({ gifs }) => {
                             ref={textAreaRef}
                             defaultValue={dado.embed_url}
                         /> */}
-                        <CopyButton embed_url={dado.embed_url} />
+                        
                     </ul>
 
                 </div>

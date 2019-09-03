@@ -12,8 +12,8 @@ const CopyButton = ({ embed_url }) => {
   };
 
   return (
-    <button onClick={copyToClipboard}>
-      Copy
+    <button className='btn btn-warning' onClick={copyToClipboard}>
+      Copiar
     </button>
   );
 };

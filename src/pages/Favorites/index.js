@@ -23,17 +23,30 @@ export default class Favorites extends Component {
         }
     }
 
+
+
     render() {
         const favoritos = this.state
+
         return (
             <div>
                 <Header />
                 <div className='container mt-5'>
                     {favoritos.favoritos.map((dado, index) => (
+
                         <div key={index} className='row'>
-                            <h5 className='title'>{dado.title}</h5>
-                            <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
-                            <textarea value={dado.embed_url} />
+                            {
+                                dado.length === '' || dado.length === 0 ?
+                                    <h1>Você ainda não salvou nenhuma Gift :( </h1>
+                                    :
+
+                                    <>
+                                        <h5 className='title'>{dado.title}</h5>
+                                        <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
+                                        <textarea defaultValue={dado.embed_url} />
+                                    </>
+                            }
+
                         </div>
                     ))}
                 </div>
