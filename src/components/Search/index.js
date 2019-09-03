@@ -13,7 +13,8 @@ function Search(props) {
     }
 
     const buscaGif = async () => {
-        const result = await Api.get(`/search?q=${searchTerm}&api_key=${api_key}&limit=150`)
+        const limit = 150
+        const result = await Api.get(`/search?q=${searchTerm}&api_key=${api_key}&limit=${limit}`)
         setGifs(result.data.data)
     }
 

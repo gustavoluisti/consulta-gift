@@ -1,4 +1,7 @@
 import * as React from 'react'
+import './Copy.css'
+
+import { FaCopy } from 'react-icons/fa';
 
 const CopyButton = ({ embed_url }) => {
   const copyToClipboard = () => {
@@ -12,9 +15,7 @@ const CopyButton = ({ embed_url }) => {
   };
 
   return (
-    <button className='btn btn-warning' onClick={copyToClipboard}>
-      Copiar
-    </button>
+    <button className='btn btn-warning btn-copy' onClick={copyToClipboard}> Copiar <FaCopy /></button>
   );
 };
 
