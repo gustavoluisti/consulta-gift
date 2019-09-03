@@ -1,34 +1,10 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import './TableGif.css'
 
 import CopyButton from '../Copy'
+import { FaGratipay } from 'react-icons/fa';
 
 const TableGif = ({ gifs }) => {
-
-    const [copySuccess, setCopySuccess] = useState('');
-    const textAreaRef = useRef('');
-    const [dados, setDados] = useState('')
-
-    // function copyToClipboard(id , embed_url) {
-    //     const dados = embed_url
-        
-    //     textAreaRef.current.select();
-    //     document.execCommand('copy');
-    //     setCopySuccess('Copied!');
-    //     setDados(dados)
-    //     console.log(dados)
-    // };
-
-    const copyToClipboard = (url) =>  {
-        const textField = document.createElement('textarea');
-        textField.innerText = url;
-        document.body.appendChild(textField);
-        textField.select();
-        document.execCommand('copy');
-        textField.remove();
-        console.log(url)
-      };
-    
 
     const favorites = (id, url, title, embed_url) => {
         saveLocalStorage(id, url, title, embed_url)
@@ -45,7 +21,6 @@ const TableGif = ({ gifs }) => {
         localStorage.setItem("favoritos", JSON.stringify(favoritos));
     }
 
-
     return (
         <div className='container'>
 
@@ -54,21 +29,15 @@ const TableGif = ({ gifs }) => {
                 <div key={dado.id}>
                     <ul >
                         <img src={dado.images.original.url} className="imagem-gif item" alt={dado.title} />
-                        <button className='btn btn-danger item' onClick={() => { favorites(dado.id, dado.images.original.url, dado.title, dado.embed_url) }}>Favorito</button>
-                        <CopyButton embed_url={dado.embed_url} />      
-                        {/* {
-                            document.queryCommandSupported('copy') &&
-                            <div className='container container-flex'>
-                                <button className='btn btn-warning item' onClick={() => { copyToClipboard(dado.id, dado.images.original.url) }}>Copy</button>
-                               {copySuccess}
-                            </div>
-                        }
+                        <div className='container'>
+                            <button className='btn btn-danger item mr-3' onClick={() => { favorites(dado.id, dado.images.original.url, dado.title, dado.embed_url) }}>Favoritar <FaGratipay /></button>
+                            <CopyButton className=' item' embed_url={dado.embed_url} />
+                            
+                        </div>
                         <textarea
                             className='copy-text'
-                            ref={textAreaRef}
                             defaultValue={dado.embed_url}
-                        /> */}
-                        
+                        /> 
                     </ul>
 
                 </div>

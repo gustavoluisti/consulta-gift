@@ -37,19 +37,10 @@ export default class Favorites extends Component {
                     {favoritos.favoritos.map((dado, index) => (
 
                         <div key={index} className='row'>
-                            {
-                                dado.length === '' || dado.length === 0 ?
-                                    <h1>Você ainda não salvou nenhuma Gift :( </h1>
-                                    :
-
-                                    <>
-                                        <h5 className='title'>{dado.title}</h5>
-                                        <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
-                                        <CopyButton embed_url={dado.url} />
-                                        <textarea defaultValue={dado.embed_url} />
-                                    </>
-                            }
-
+                            <h5 className='title'>{dado.title}</h5>
+                            <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
+                            <CopyButton embed_url={dado.url} />
+                            <textarea defaultValue={dado.embed_url} />
                         </div>
                     ))}
                 </div>

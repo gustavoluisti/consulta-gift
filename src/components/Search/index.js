@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Api from '../../services/api'
 import './Search.css'
 
@@ -15,12 +15,7 @@ function Search(props) {
     const buscaGif = async () => {
         const result = await Api.get(`/search?q=${searchTerm}&api_key=${api_key}`)
         setGifs(result.data.data)
-        console.log(result.data.data)
     }
-
-    useEffect(() => {
-        buscaGif()
-    }, [])
 
     const onSubmitHandler = e => {
         e.preventDefault()
