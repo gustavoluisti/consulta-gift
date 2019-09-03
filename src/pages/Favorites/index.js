@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import './Favorites.css'
+
+import Header from '../../components/Header'
 
 export default class Favorites extends Component {
 
@@ -10,28 +13,32 @@ export default class Favorites extends Component {
     }
 
     componentDidMount = () => {
-        if( localStorage.length > 0) {
+        if (localStorage.length > 0) {
             let favoritos = JSON.parse(localStorage.getItem('favoritos'))
             console.log(favoritos)
-
-            if(Object.keys(favoritos).length === 0 && favoritos.constructor === Object) {
+            if (Object.keys(favoritos).length === 0 && favoritos.constructor === Object) {
                 return
             }
-            this.setState({ favoritos: favoritos})
+            this.setState({ favoritos: favoritos })
         }
-
-
-
     }
 
-render() {
-    const favoritos = this.state
-    return (
-        <div>
-            <h1>Favoritos</h1>
-            {JSON.stringify(favoritos)}
-        </div>
-    )
-}
-    
+    render() {
+        const favoritos = this.state
+        return (
+            <div>
+                <Header />
+                <div className='container '>
+                    {favoritos.favoritos.map((dado, index) => (
+                        <div className=' '>
+                            <h5 className='title'>{dado.title}</h5>
+                            <img className='imagem-gif' src={dado.url} />
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+        )
+    }
+
 }
