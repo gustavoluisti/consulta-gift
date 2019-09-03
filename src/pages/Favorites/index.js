@@ -5,7 +5,6 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 
 export default class Favorites extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -31,15 +30,15 @@ export default class Favorites extends Component {
                 <Header />
                 <div className='container mt-5'>
                     {favoritos.favoritos.map((dado, index) => (
-                        <div className=' '>
+                        <div key={index} className=' '>
                             <h5 className='title'>{dado.title}</h5>
                             <img className='imagem-gif-favorites' src={dado.url} alt={dado.title} />
+                            
                         </div>
                     ))}
                 </div>
                 <Footer />
             </div>
-
         )
     }
 

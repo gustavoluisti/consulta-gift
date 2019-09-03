@@ -20,10 +20,6 @@ const Header = () => {
                             <Link className="nav-link" to="/favorites">Favoritos</Link>
                         </li>
                     </ul>
-                    <form className="form-inline">
-                        <input className="form-control mr-sm-2"  type="search" placeholder="Search" aria-label="Search" />
-                        <button className="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
-                    </form>
                 </div>
             </nav>
         </div>
